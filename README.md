@@ -12,7 +12,7 @@ One image that sums up the world's news of Tuesday 24 November 2026, drawn as a 
 mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-`main.ts` copies the bundled `entry.png` — a newspaper front page drawn in code from the day's reported world news — to `/output/entry.png`, as the bounty requires. The image is 1024x1024 PNG, under the 1 MiB gate.
+`main.ts` checks the bundled `entry.png` against the contest gate (PNG signature, at most 1 MiB, at most 1024x1024) and copies it to `/output/entry.png`. The picture itself is drawn in code: `python3 generate.py` redraws `entry.png` from scratch with PIL, laying out the masthead, the lead story and the four panels from the day's reported headlines, and its output is byte-for-byte the committed `entry.png`.
 
 ---
 
